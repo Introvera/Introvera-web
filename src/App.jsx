@@ -6,6 +6,7 @@ import ModernFooter from "./components/ModernFooter";
 import Testimonials from "./components/Testimonials";
 import Projects from "./components/Projects";
 import Team from "./components/Team";
+import ContactUs from "./components/ContactUs";
 import AboutUs from "./components/AboutUs";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <WhyChooseUs />
         <Team />
         <Testimonials />
+        <ContactUs />
         <ModernFooter />
         {/* <Footer /> */}
       </div>
