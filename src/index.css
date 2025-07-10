@@ -7,8 +7,7 @@
 :root {
   font-family: "Poppins", sans-serif;
   color-scheme: dark;
-  background: #1e1e1e;
-  /* color: #0a0ac6; */
+  background: #000000;
 }
 html {
   scroll-behavior: smooth;
@@ -18,8 +17,15 @@ html {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge */
+.scrollbar-hide {
+  -ms-overflow-style: none;
 }
