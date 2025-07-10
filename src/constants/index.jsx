@@ -181,21 +181,5 @@ export const projects = [
   },
 ];
 
-export const resourcesLinks = [
-  { href: "#", text: "Getting Started" },
-  { href: "#", text: "Community Forums" },
-];
 
-export const platformLinks = [
-  { href: "#", text: "LinkedIn" },
-  { href: "#", text: "Facebook" },
-  { href: "#", text: "Instagram" },
-];
 
-export const communityLinks = [
-  { href: "#", text: "Events" },
-  { href: "#", text: "Meetups" },
-  { href: "#", text: "Conferences" },
-  { href: "#", text: "Hackathons" },
-  { href: "#", text: "Jobs" },
-];
