@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { projects } from "../constants";
 
@@ -24,19 +24,48 @@ const Projects = () => {
     );
   };
 
+  // Ref for the outer carousel container
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        // Use the data-card selector for reliability
+        const card = carouselRef.current.querySelector("[data-card]");
+        if (card) {
+          const scrollAmount = card.offsetWidth + 16; // 16px gap (adjust if needed)
+          // If at end, scroll back to start
+          if (
+            carouselRef.current.scrollLeft + carouselRef.current.offsetWidth >=
+            carouselRef.current.scrollWidth - 10 // small buffer for float rounding
+          ) {
+            carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            carouselRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+          }
+        }
+      }
+    }, 2000); // Change slide every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="mt-10" id="projects">
       <h2 className="text-3xl sm:text-5xl lg:text-5xl text-center my-8 tracking-wide">
         Our {" "}
-        <span className="bg-gradient-to-r from-purple-500 to-blue-800 text-transparent bg-clip-text">
+        <span className="bg-gradient-to-r from-blue-500 to-purple-800 text-transparent bg-clip-text">
           Projects
         </span>
       </h2>
-      {/* Outer carousel: horizontally scrollable project cards */}
-      <div className="flex overflow-x-auto gap-2 sm:gap-4 md:gap-6 pb-4">
+      <div
+        className="flex overflow-x-auto gap-2 sm:gap-4 md:gap-6 pb-4 hide-scrollbar"
+        ref={carouselRef}
+      >
         {projects.map((project, projectIdx) => (
           <div
             key={projectIdx}
+            data-card
             className="
               min-w-[140px] 
               sm:min-w-[200px] 
