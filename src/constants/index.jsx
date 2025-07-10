@@ -136,8 +136,7 @@ export const projects = [
     description: "Short description about Project A.",
     images: [
       "/img/projectA1.jpg",
-      "/img/projectA2.jpg",
-      "/img/projectA3.jpg"
+      "/img/projectA2.jpg"
     ]
   },
   {
