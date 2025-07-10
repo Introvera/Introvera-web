@@ -34,7 +34,7 @@ const teamMembers = [
   {
     name: "Sandara Apoorwa",
     position: "Developer",
-    image: "/src/assets/team-photos/sandara.jpeg",
+    image: "/src/assets/team-photos/sandara.jpg",
   },
   {
     name: "Sahan Randeepa",
