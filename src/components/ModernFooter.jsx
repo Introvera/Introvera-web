@@ -1,76 +1,85 @@
-import { resourcesLinks, platformLinks, communityLinks } from "../constants";
+import logo from "../assets/logofull.png"; // Replace with your actual logo path
+
+const quickLinks = [
+  { text: "Home", href: "#home" },
+  { text: "About Us", href: "#about" },
+  { text: "Projects", href: "#projects" },
+  { text: "Services", href: "#services" },
+];
 
 const socialLinks = [
-  { href: "https://twitter.com/", icon: "fa-brands fa-x-twitter", label: "Twitter" },
-  { href: "https://linkedin.com/", icon: "fa-brands fa-linkedin", label: "LinkedIn" },
-  { href: "https://github.com/", icon: "fa-brands fa-github", label: "GitHub" },
+  { href: "https://www.linkedin.com/company/introvera/about/", icon: "fab fa-linkedin", label: "LinkedIn" },
+  { href: "", icon: "fab fa-facebook", label: "Facebook" },
+  { href: "", icon: "fab fa-instagram", label: "Instagram" },
+  { href: "https://github.com/", icon: "fab fa-github", label: "GitHub" },
 ];
 
 const ModernFooter = () => {
   return (
-    <footer className="bg-gradient-to-r from-black-900  to-purple-900 text-neutral-200 pt-12 pb-6 px-4 mt-20">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-10">
-        {/* Logo and About */}
-        <div className="flex-1 mb-10 md:mb-0">
-          <div className="flex items-center gap-3 mb-4">
-            {/* Replace with your logo if you have one */}
-            <span className="text-3xl font-extrabold text-white tracking-tight">Introvera</span>
+    <footer className="bg-[#0a0a0a] text-neutral-300 px-6 md:px-12 py-12 mt-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+        {/* Logo + Description */}
+        <div className="md:col-span-1">
+          <div className="mb-4">
+            <img src={logo} alt="Introvera Logo" className="w-32 h-auto" />
           </div>
-          <p className="text-neutral-400 max-w-sm mb-6">
-            Empowering innovation with cutting-edge technology and creative solutions for a digital world.
+          <p className="text-sm text-neutral-400 leading-relaxed max-w-sm">
+            Empowering businesses with intelligent, scalable, and secure software solutions.
+            We build with passion and purpose for the digital future.
           </p>
-          <div className="flex gap-4">
-            {socialLinks.map((link, idx) => (
-              <a
-                key={idx}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-                className="hover:text-white text-2xl transition"
-              >
-                <i className={link.icon}></i>
-              </a>
-            ))}
-          </div>
         </div>
-        {/* Links */}
-        <div className="flex-[2] grid grid-cols-2 md:grid-cols-3 gap-8">
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Resources</h4>
-            <ul className="space-y-2">
-              {resourcesLinks.map((link, idx) => (
-                <li key={idx}>
-                  <a href={link.href} className="hover:text-white transition">{link.text}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Platform</h4>
-            <ul className="space-y-2">
-              {platformLinks.map((link, idx) => (
-                <li key={idx}>
-                  <a href={link.href} className="hover:text-white transition">{link.text}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Community</h4>
-            <ul className="space-y-2">
-              {communityLinks.map((link, idx) => (
-                <li key={idx}>
-                  <a href={link.href} className="hover:text-white transition">{link.text}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+        {/* Quick Links */}
+        <div>
+          <h4 className="text-white font-semibold mb-3">Quick Links</h4>
+          <ul className="space-y-2 text-sm">
+            {quickLinks.map((link, idx) => (
+              <li key={idx}>
+                <a href={link.href} className="hover:text-white transition">
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Social Media */}
+        <div>
+          <h4 className="text-white font-semibold mb-3">Social Media</h4>
+          <ul className="space-y-2 text-sm">
+            {socialLinks.map((link, idx) => (
+              <li key={idx} className="flex items-center gap-2">
+                <i className={`${link.icon} text-lg`}></i>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h4 className="text-white font-semibold mb-3">Contact</h4>
+          <p className="text-sm mb-2">📍 Kaduwela, Sri Lanka</p>
+          <p className="text-sm mb-2">📞 +94 6782 225</p>
+          <p className="text-sm mb-4">
+            📧{" "}
+            <a href="mailto:teamintrovera@gmail.com" className="hover:text-white">
+              teamintrovera@gmail.com
+            </a>
+          </p>
         </div>
       </div>
-      {/* Divider */}
-      <div className="border-t border-neutral-800 mt-12 pt-6 text-center text-neutral-400 text-sm">
-        &copy; {new Date().getFullYear()} TechCompany. All rights reserved.
+
+      {/* Divider & Bottom Bar */}
+      <div className="border-t border-neutral-800 mt-12 pt-6 text-sm text-center text-neutral-500">
+        &copy; {new Date().getFullYear()} Introvera. All rights reserved.
       </div>
     </footer>
   );
