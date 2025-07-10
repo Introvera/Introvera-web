@@ -1,71 +1,84 @@
 import { useEffect, useRef, useState } from "react";
+import nimesh from "../assets/team-photos/nimesh.png";
+import sonal from "../assets/team-photos/sonal.jpeg";
+import deeshana from "../assets/team-photos/deeshana.jpeg";
+import hasaru from "../assets/team-photos/hasaru.jpeg";
+// import malindu from "../assets/team-photos/malindu.jpeg";
+import sankaja from "../assets/team-photos/sankaja.jpeg";
+import sandara from "../assets/team-photos/sandara.jpeg";
+import nelith from "../assets/team-photos/nelith.jpeg";
+import rasindu from "../assets/team-photos/rasindu.jpeg";
+// import sahan from "../assets/team-photos/sahan.jpeg";
+// import pasindufrom "../assets/team-photos/pasindu.jpg";
+// import kisara from "../assets/team-photos/kisara.jpeg";
+// import nithula from "../assets/team-photos/nithula.jpeg";
 
 const teamMembers = [
   {
     name: "Nimesh Deepamal",
     position: "Co-Founder",
-    image: "/src/assets/team-photos/nimesh.png",
+    image: nimesh,
   },
   {
     name: "Sonal Kethaka",
     position: "Co-Founder",
-    image: "/src/assets/team-photos/sonal.jpeg",
+    image: sonal,
   },
   {
     name: "Deeshana Liyanage",
     position: "Co-Founder",
-    image: "/src/assets/team-photos/deeshana.jpeg",
+    image: deeshana,
   },
   {
     name: "Hasaru Uyanahewa",
     position: "Co-Founder",
-    image: "/src/assets/team-photos/hasaru.jpeg",
+    image: hasaru,
   },
-  {
-    name: "Malindu Bandara",
-    position: "Co-Founder",
-    image: "/src/assets/team-photos/malindu.jpeg",
-  },
+//   {
+//     name: "Malindu Bandara",
+//     position: "Co-Founder",
+//     image: malindu,
+//   },
   {
     name: "Sankaja Pandipperuma",
     position: "Developer",
-    image: "/src/assets/team-photos/sankaja.jpeg",
+    image: sankaja,
   },
   {
     name: "Sandara Apoorwa",
     position: "Developer",
-    image: "/src/assets/team-photos/sandara.jpg",
+    image: sandara,
   },
-  {
-    name: "Sahan Randeepa",
-    position: "Developer",
-    image: "/src/assets/team-photos/sahan.jpeg",
-  },
+//   {
+//     name: "Sahan Randeepa",
+//     position: "Developer",
+//     image: sahan,
+//   },
   {
     name: "Nelith Nethsanda",
     position: "Developer",
-    image: "/src/assets/team-photos/nelith.jpeg",
+    image: nelith,
   },
-  {
-    name: "Pasindu Dilshan",
-    position: "Developer",
-    image: "/src/assets/team-photos/pasindu.jpeg",
-  },
+//   {
+//     name: "Pasindu Dilshan",
+//     position: "Developer",
+//     image: pasindu,
+//   },
   {
     name: "Rasindu Bandara",
     position: "Developer",
-    image: "/src/assets/team-photos/rasindu.jpeg",
+    image: rasindu,
   },
-  {
-    name: "Kisara Nuwanga",
-    position: "Developer",
-    image: "/src/assets/team-photos/kisara.jpeg",
-  },
-  {
-    name: "Nithula Hansaja",
-    position: "Developer",
-    image: "/src/assets/team-photos/nithula.jpeg",
-  },
+//   {
+//     name: "Kisara Nuwanga",
+//     position: "Developer",
+//     image: kisara,
+//   },
+//   {
+//     name: "Nithula Hansaja",
+//     position: "Developer",
+//     image: nithula,
+//   },
 ];
 
 const getCardsToShow = () => {
@@ -137,7 +150,7 @@ const Team = () => {
               p-2 sm:p-4 xl:p-6
               min-w-[90px] sm:min-w-[140px] md:min-w-[180px] xl:min-w-[220px]
               max-w-xs
-              h-52 sm:h-64 md:h-72 xl:h-60
+              h-32 sm:h-44 md:h-52 xl:h-60
               transition-all duration-500
               hover:border-gradient-to-r hover:from-blue-500 hover:to-purple-800 hover:border-4
               "
