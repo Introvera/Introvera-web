@@ -1,6 +1,5 @@
 "use client";
 
-// import { cn } from "@/lib/utils"; // If you're not using this utility, you can replace `cn()` with template strings
 import { useMotionValue, motion, useMotionTemplate } from "motion/react";
 
 
@@ -98,7 +97,7 @@ export const Highlight = ({ children, className }) => {
         backgroundPosition: "left center",
         display: "inline",
       }}
-      className={`relative inline-block rounded-lg bg-gradient-to-r from-indigo-300 to-purple-300 px-1 pb-1 dark:from-indigo-500 dark:to-purple-500 ${className}`}
+      className={`relative inline-block rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 px-1 pb-1 dark:from-indigo-900 dark:to-purple-900 ${className}`}
     >
       {children}
     </motion.span>
