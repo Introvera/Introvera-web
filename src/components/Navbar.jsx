@@ -27,7 +27,7 @@ const Navbar = () => {
           </ul>
           <div className="hidden lg:flex justify-center space-x-12 items-center">
             <a
-              href="#"
+              href="#contact"
               className="bg-gradient-to-r from-purple-500 to-blue-800 py-2 px-3 rounded-md"
             >
               Talk to us
@@ -51,7 +51,7 @@ const Navbar = () => {
             <div className="flex space-x-6">
              
               <a
-                href="#"
+                href="#contact"
                 className="py-2 px-3 rounded-md bg-gradient-to-r from-purple-500 to-blue-800"
               >
                 Talk to us
