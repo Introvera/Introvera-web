@@ -8,10 +8,10 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://www.linkedin.com/company/introvera/about/", icon: "fab fa-linkedin", label: "LinkedIn" },
-  { href: "", icon: "fab fa-facebook", label: "Facebook" },
+  { href: "https://www.linkedin.com/company/introvera/", icon: "fab fa-linkedin", label: "LinkedIn" },
+  { href: "https://www.facebook.com/profile.php?id=61577711031531", icon: "fab fa-facebook", label: "Facebook" },
   { href: "", icon: "fab fa-instagram", label: "Instagram" },
-  { href: "https://github.com/", icon: "fab fa-github", label: "GitHub" },
+  { href: "https://github.com/Introvera-sl", icon: "fab fa-github", label: "GitHub" },
 ];
 
 const ModernFooter = () => {
