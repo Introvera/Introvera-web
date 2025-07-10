@@ -15,6 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { useInView } from "react-intersection-observer";
 
 export const CarouselContext = createContext({
   onCardClose: () => {},
@@ -26,6 +27,18 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Intersection Observer hook for lazy loading
+  const { ref: inViewRef, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  // Combine refs for carousel container
+  const setRefs = (node) => {
+    carouselRef.current = node;
+    inViewRef(node);
+  };
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -75,7 +88,7 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
     <CarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
-      <div className="relative w-full" id="projects">
+      <div className="relative w-full" id="projects" ref={setRefs}>
         {/* Heading above the carousel */}
         <h2 className="text-3xl sm:text-5xl lg:text-5xl text-center my-2 tracking-wide">
           Our{" "}
@@ -84,42 +97,46 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
           </span>
         </h2>
 
-        <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
-          ref={carouselRef}
-          onScroll={checkScrollability}
-        >
-          <div className="absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l" />
-
+        {inView ? (
           <div
-            className={cn(
-              "flex flex-row justify-start gap-4 pl-4",
-              "mx-auto max-w-7xl"
-            )}
+            className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
+            onScroll={checkScrollability}
           >
-            {items.map((item, index) => (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.5,
-                    delay: 0.2 * index,
-                    ease: "easeOut",
-                  },
-                }}
-                key={"card" + index}
-                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
-              >
-                {item}
-              </motion.div>
-            ))}
+            <div className="absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l" />
+
+            <div
+              className={cn(
+                "flex flex-row justify-start gap-4 pl-4",
+                "mx-auto max-w-7xl"
+              )}
+            >
+              {items.map((item, index) => (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.5,
+                      delay: 0.2 * index,
+                      ease: "easeOut",
+                    },
+                  }}
+                  key={"card" + index}
+                  className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
+                >
+                  {item}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          // Placeholder for layout stability before in view
+          <div style={{ height: "300px" }} />
+        )}
       </div>
     </CarouselContext.Provider>
   );
