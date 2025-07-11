@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import nimesh from "../assets/team-photos/nimesh.png";
 import sonal from "../assets/team-photos/sonal.jpeg";
 import deeshana from "../assets/team-photos/deeshana.jpeg";
+import malindu from "../assets/team-photos/malindu.jpeg";
 import hasaru from "../assets/team-photos/hasaru.jpeg";
 import sankaja from "../assets/team-photos/sankaja.jpeg";
 import sandara from "../assets/team-photos/sandara.jpeg";
@@ -18,6 +19,7 @@ const teamMembers = [
   { name: "Nimesh Deepamal", position: "Co-Founder", image: nimesh },
   { name: "Sonal Kethaka", position: "Co-Founder", image: sonal },
   { name: "Deeshana Liyanage", position: "Co-Founder", image: deeshana },
+  { name: "Malindu Bandara", position: "Co-Founder", image: malindu },
   { name: "Hasaru Uyanahewa", position: "Co-Founder", image: hasaru },
   { name: "Sankaja Pandipperuma", position: "Developer", image: sankaja },
   { name: "Sandara Apoorwa", position: "Developer", image: sandara },
