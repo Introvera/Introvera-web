@@ -34,12 +34,12 @@ const Workflow = () => {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <img src={codeImg} alt="Coding" className="rounded-xl shadow-xl" />
+          <img src={codeImg} alt="Coding" className="rounded-xl shadow-xl xl:mt-40" />
         </motion.div>
 
         {/* Right content */}
         <motion.div
-          className="pt-12 w-full lg:w-1/2"
+          className="pt-12 w-full lg:w-1/2 "
           initial={{ opacity: 0, x: 50 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ delay: 0.5, duration: 0.6 }}
@@ -47,12 +47,12 @@ const Workflow = () => {
           {checklistItems.map((item, index) => (
             <motion.div
               key={index}
-              className="flex mb-12"
+              className="flex mb-12 bg-gradient-to-r from-gray-900 to-gray-1000 rounded-2xl py-5"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
             >
-              <div className="text-green-400 mx-6 bg-neutral-900 h-10 w-10 p-2 flex justify-center items-center rounded-full shadow-md">
+              <div className="text-green-400 mx-6 bg-neutral-900 h-10 w-10 p-2 flex justify-center items-center rounded-full shadow-md ">
                 <CheckCircle2 />
               </div>
               <div>
