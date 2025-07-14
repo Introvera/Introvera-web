@@ -14,6 +14,7 @@ import sandara from "../assets/team-photos/sandara.jpeg";
 import nelith from "../assets/team-photos/nelith.jpeg";
 import rasindu from "../assets/team-photos/rasindu.jpeg";
 import kisara from "../assets/team-photos/kisara.jpeg";
+import nithula from "../assets/team-photos/nithula.jpeg";
 
 const teamMembers = [
   { name: "Nimesh Deepamal", position: "Co-Founder", image: nimesh },
@@ -26,6 +27,7 @@ const teamMembers = [
   { name: "Nelith Nethsanda", position: "Developer", image: nelith },
   { name: "Rasindu Bandara", position: "Developer", image: rasindu },
   { name: "Kisara Nuwanga", position: "Developer", image: kisara },
+  { name: "Nithula Hansaja", position: "Developer", image: nithula },
 ];
 
 const getCardsToShow = () => {
