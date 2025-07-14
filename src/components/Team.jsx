@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { Linkedin } from "lucide-react";
+
 
 import nimesh from "../assets/team-photos/nimesh.png";
 import sonal from "../assets/team-photos/sonal.jpeg";
@@ -17,17 +19,17 @@ import kisara from "../assets/team-photos/kisara.jpeg";
 import nithula from "../assets/team-photos/nithula.jpeg";
 
 const teamMembers = [
-  { name: "Nimesh Deepamal", position: "Co-Founder", image: nimesh },
-  { name: "Sonal Kethaka", position: "Co-Founder", image: sonal },
-  { name: "Deeshana Liyanage", position: "Co-Founder", image: deeshana },
-  { name: "Malindu Bandara", position: "Co-Founder", image: malindu },
-  { name: "Hasaru Uyanahewa", position: "Co-Founder", image: hasaru },
-  { name: "Sankaja Pandipperuma", position: "Developer", image: sankaja },
-  { name: "Sandara Apoorwa", position: "Developer", image: sandara },
-  { name: "Nelith Nethsanda", position: "Developer", image: nelith },
-  { name: "Rasindu Bandara", position: "Developer", image: rasindu },
-  { name: "Kisara Nuwanga", position: "Developer", image: kisara },
-  { name: "Nithula Hansaja", position: "Developer", image: nithula },
+  { name: "Nimesh Deepamal", position: "Co-Founder", image: nimesh ,linkedin: "https://linkedin.com/in/nimesh-deepamal" },
+  { name: "Sonal Kethaka", position: "Co-Founder", image: sonal  ,linkedin:"https://www.linkedin.com/in/sonal-pathinayaka/" },
+  { name: "Deeshana Liyanage", position: "Co-Founder", image: deeshana ,linkedin:"https://www.linkedin.com/in/deeshanaliyanage/"},
+  { name: "Malindu Bandara", position: "Co-Founder", image: malindu ,linkedin:"https://www.linkedin.com/in/malindu-bandara-211223210/"},
+  { name: "Hasaru Uyanahewa", position: "Co-Founder", image: hasaru ,linkedin:"https://www.linkedin.com/in/hasaruuyanahewa/"},
+  { name: "Sankaja Pandipperuma", position: "Developer", image: sankaja ,linkedin:"https://www.linkedin.com/in/sankaja-pandipperuma-477a7b268/"},
+  { name: "Sandara Apoorwa", position: "Developer", image: sandara ,linkedin:"https://www.linkedin.com/in/sandara-hettiarachchi-830bb6202/"},
+  { name: "Nelith Nethsanda", position: "Developer", image: nelith ,linkedin:"https://www.linkedin.com/in/nelith-nethsanda/"},
+  { name: "Rasindu Bandara", position: "Developer", image: rasindu ,linkedin:"https://www.linkedin.com/in/rasindubandara/"},
+  { name: "Kisara Nuwanga", position: "Developer", image: kisara ,linkedin:"https://www.linkedin.com/in/kisara-bandara-a2826a296/"},
+  { name: "Nithula Hansaja", position: "Developer", image: nithula ,linkedin:"https://www.linkedin.com/in/nithula-hansaja/"},
 ];
 
 const getCardsToShow = () => {
@@ -123,6 +125,17 @@ const Team = () => {
               <div className="text-neutral-500 dark:text-neutral-300 text-[10px] sm:text-xs md:text-sm xl:text-base text-center">
                 {member.position}
               </div>
+              {member.linkedin && (
+      <a
+        href={member.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-1 flex items-center gap-1 text-blue-600 dark:text-blue-400 text-[10px] sm:text-xs md:text-sm xl:text-base hover:underline"
+      >
+        <Linkedin size={14} />
+        <span>LinkedIn</span>
+      </a>
+    )}
             </div>
           ))}
         </motion.div>
