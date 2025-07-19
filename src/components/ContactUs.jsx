@@ -17,26 +17,56 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
+
     const formData = new FormData(formRef.current);
-    const data = {
+    const fromName = formData.get("name");
+    const fromEmail = formData.get("email");
+    const message = formData.get("message");
+
+    const headers = { "Content-Type": "application/json" };
+
+    // Send to YOU (contact form)
+    const contactData = {
       service_id: "service_6jybba9",
       template_id: "template_yaup53k",
       user_id: "2IuW0Sj0bTx8RGlan",
       template_params: {
-        from_name: formData.get("name"),
-        from_email: formData.get("email"),
-        message: formData.get("message"),
+        from_name: fromName,
+        from_email: fromEmail,
+        message: message,
       },
     };
+
+    // Auto-reply to USER
+    const autoReplyData = {
+      service_id: "service_6jybba9",
+      template_id: "template_2expv74",
+      user_id: "2IuW0Sj0bTx8RGlan",
+      template_params: {
+        to_name: fromName,
+        to_email: fromEmail,
+      },
+    };
+
     try {
+      // First: send contact message to you
       await fetch("https://api.emailjs.com/api/v1.0/email/send", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers,
+        body: JSON.stringify(contactData),
       });
+
+      // Then: send auto-reply to user
+      await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers,
+        body: JSON.stringify(autoReplyData),
+      });
+
       setStatus("Message sent!");
       formRef.current.reset();
-    } catch {
+    } catch (error) {
+      console.error("EmailJS Error:", error);
       setStatus("Failed to send. Please try again.");
     }
   };
@@ -76,7 +106,7 @@ const ContactUs = () => {
               </div>
               <div className="mb-4">
                 <span className="font-medium">Address:</span>
-                <span className="ml-2">kaduwela</span>
+                <span className="ml-2">Kaduwela</span>
               </div>
               <div className="mb-4">
                 <span className="font-medium">Location:</span>
